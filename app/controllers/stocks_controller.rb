@@ -4,7 +4,7 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    @stocks = current_user.stocks
   end
 
   # GET /stocks/1
@@ -25,6 +25,7 @@ class StocksController < ApplicationController
   # POST /stocks.json
   def create
     @stock = Stock.new(stock_params)
+    @stock.user = current_user
 
     respond_to do |format|
       if @stock.save
