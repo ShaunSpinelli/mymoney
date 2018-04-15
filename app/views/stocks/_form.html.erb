@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :ticker %>
-    <%= form.text_field :ticker, id: :stock_ticker %>
+    <%= form.hidden_field :ticker, id: :stock_ticker, value: @stockinfo.symbol %>
   </div>
 
   <div class="field">
-    <%= form.label :purchaseprice %>
-    <%= form.text_field :purchaseprice, id: :stock_purchaseprice %>
+    <%= form.hidden_field :purchaseprice, id: :stock_purchaseprice, value: @stockinfo.latest_price %>
   </div>
 
   <div class="field">
