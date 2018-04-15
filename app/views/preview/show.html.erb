@@ -1,2 +1,6 @@
-<h1>Showing you the stock</h1>
-<%= @stock.company_name%>
+<h1><%= @stock.company_name%></h1>
+<p><%= @stock.symbol%></p>
+
+
+
+<%= link_to 'Add', controller: "stocks", action: "new", symbol: @stock.symbol%>
