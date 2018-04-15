@@ -5,6 +5,8 @@ class StocksController < ApplicationController
   # GET /stocks.json
   def index
     @stocks = current_user.stocks
+    #iterate through all stocks to get symbols add them up "aapl,tsla" to get StockQuote and then interate throught
+    #to get intofamtion onto index page
   end
 
   # GET /stocks/1
@@ -15,12 +17,14 @@ class StocksController < ApplicationController
   # GET /stocks/new
   def new
     @stock = Stock.new
+    @stockinfo = StockQuote::Stock.quote("#{params[:symbol]}")
+  
   end
-
+  
   # GET /stocks/1/edit
   def edit
   end
-
+  
   # POST /stocks
   # POST /stocks.json
   def create
